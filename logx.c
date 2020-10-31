@@ -9,6 +9,10 @@ char *attach(char *, char*);
 
 int main(int argc,char *argv[])
 {
+    if(argc > 2){
+        printf("logx: Too much arguments\n");
+        return 1;
+    }
     char buff[20];
     time_t now = time(NULL);
     strftime(buff, 20, "%H:%M:%S", localtime(&now));
