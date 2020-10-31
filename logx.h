@@ -1,0 +1,1 @@
+#define LOGX_OUT_FILE_NAME "/sdcard/Android/logx.log"
