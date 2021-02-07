@@ -1,3 +1,6 @@
 *.sh
 logx
 .vscode/c_cpp_properties.json
+logx.exe
+.vscode/launch.json
+.vscode/tasks.json
