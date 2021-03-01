@@ -8,10 +8,10 @@ char *attach(char *, char*);
 int main(int argc,char *argv[])
 {
     if(argc > 4){
-        printf("logx: Too much arguments\n");
+        printf("logx: Too much parameters\n");
         return 1;
     } else if (argc < 4){
-        printf("logx: Too few arguments\n");
+        printf("logx: Too few parameters\n");
         return 1;
     }
     char buff[20];
@@ -21,7 +21,7 @@ int main(int argc,char *argv[])
 	FILE *fp;
     if((fp=fopen(argv[1],"a+"))==NULL)
     {
-        printf("logx: Wrong argument, can not open file\n");
+        printf("logx: Wrong parameters, can not open file\n");
         exit(0);
     }
 
