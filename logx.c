@@ -3,13 +3,11 @@
 #include <string.h>
 #include <time.h>
 
-#include "logx.h"
-
 char *attach(char *, char*);
 
 int main(int argc,char *argv[])
 {
-    if(argc > 2){
+    if(argc > 3){
         printf("logx: Too much arguments\n");
         return 1;
     }
@@ -18,13 +16,13 @@ int main(int argc,char *argv[])
     strftime(buff, 20, "%H:%M:%S", localtime(&now));
 	
 	FILE *fp;
-    if((fp=fopen(LOGX_OUT_FILE_NAME,"a+"))==NULL)
+    if((fp=fopen(argv[1],"a+"))==NULL)
     {
-        printf("logx: Can not open file\n");
+        printf("logx: Wrong argument, can not open file\n");
         exit(0);
     }
 
-	char* append = attach(attach("[",attach(&buff,"]")),attach(attach(" ", argv[1]),"\n"));
+	char* append = attach(attach("[",attach(&buff,"]")),attach(attach(" ", argv[2]),"\n"));
 	fputs(append,fp);
 	fclose(fp);
 	return 0;
