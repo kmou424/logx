@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
+
+#define LOGX_VERSION "1.0"
 
 char *attach(char *, char*);
 
@@ -9,6 +12,14 @@ int main(int argc,char *argv[])
     if(argc > 4){
         printf("logx: Too much parameters\n");
         exit (1);
+    } else if (argc == 2){
+        if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "version") == 0){
+            printf("%s", attach(attach("logx: Version ", LOGX_VERSION), "\n"));
+            exit (0);
+        } else if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "help") == 0){
+            printf("logx: Usage:\n      logx <log file path> <TAG> <log>\n");
+            exit (0);
+        }
     } else if (argc < 4){
         printf("logx: Too few parameters\n");
         exit (1);
