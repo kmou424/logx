@@ -7,7 +7,7 @@ char *attach(char *, char*);
 
 int main(int argc,char *argv[])
 {
-    if(argc > 3){
+    if(argc > 4){
         printf("logx: Too much arguments\n");
         return 1;
     }
@@ -22,7 +22,7 @@ int main(int argc,char *argv[])
         exit(0);
     }
 
-	char* append = attach(attach("[",attach(&buff,"]")),attach(attach(" ", argv[2]),"\n"));
+	char* append = attach(attach("[",attach(&buff,"]")),attach(attach(" ", attach(argv[2], attach(": ", argv[3]))),"\n"));
 	fputs(append,fp);
 	fclose(fp);
 	return 0;
