@@ -10,6 +10,9 @@ int main(int argc,char *argv[])
     if(argc > 4){
         printf("logx: Too much arguments\n");
         return 1;
+    } else if (argc < 4){
+        printf("logx: Too few arguments\n");
+        return 1;
     }
     char buff[20];
     time_t now = time(NULL);
