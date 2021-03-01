@@ -9,10 +9,10 @@ int main(int argc,char *argv[])
 {
     if(argc > 4){
         printf("logx: Too much parameters\n");
-        return 1;
+        exit (1);
     } else if (argc < 4){
         printf("logx: Too few parameters\n");
-        return 1;
+        exit (1);
     }
     char buff[20];
     time_t now = time(NULL);
@@ -22,7 +22,7 @@ int main(int argc,char *argv[])
     if((fp=fopen(argv[1],"a+"))==NULL)
     {
         printf("logx: Wrong parameters, can not open file\n");
-        exit(0);
+        exit(1);
     }
 
 	char* append = attach(attach("[",attach(&buff,"]")),attach(attach(" ", attach(argv[2], attach(": ", argv[3]))),"\n"));
