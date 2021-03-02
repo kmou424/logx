@@ -20,7 +20,7 @@ int main(int argc,char *argv[])
             printf("%s", attach(attach("logx: Version ", LOGX_VERSION), "\n"));
             exit (0);
         } else if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "help") == 0){
-            printf("logx: Usage:\n      logx <log file path> <TAG> <log>\n");
+            printf("logx: Usage:\n      Set environment variables:\n      \"export %s=<Output file path>\" and \"export %s=<TAG of log sender>\"\n      logx <log>\n", LOGX_OUT, LOGX_TAG);
             exit (0);
         }
     } else if (argc < 2){
