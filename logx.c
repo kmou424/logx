@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define LOGX_VERSION "1.0"
+#define LOGX_VERSION "1.1"
 
 const char *LOGX_OUT = "LOGXOUT";
 const char *LOGX_TAG = "LOGXTAG";
