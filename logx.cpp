@@ -45,7 +45,10 @@ int main(int argc,char *argv[])
     
     char buff[20];
     time_t now = time(NULL);
+    struct timeval tv;
+    
     strftime(buff, 20, "%H:%M:%S", localtime(&now));
+    gettimeofday(&tv, NULL);
 	
 	FILE *fp;
     if((fp=fopen(logx_out, "a+"))==NULL)
@@ -56,7 +59,8 @@ int main(int argc,char *argv[])
 
     std::string output_string;
     std::string time_now(buff);
-    output_string = "[" + time_now + "] " + logx_tag + " : " + argv[1] + "\n";
+    std::string millisecond = std::to_string(tv.tv_usec / 1000);
+    output_string = "[" + time_now + "." + millisecond + "] " + logx_tag + " : " + argv[1] + "\n";
     const char* append = output_string.c_str();
 	fputs(append,fp);
 	fclose(fp);
