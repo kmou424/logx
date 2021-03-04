@@ -43,11 +43,11 @@ int main(int argc,char *argv[])
       exit(1);
     }
     
-    char buff[20];
+    char buff[10];
     time_t now = time(NULL);
     struct timeval tv;
     
-    strftime(buff, 20, "%H:%M:%S", localtime(&now));
+    strftime(buff, 10, "%H:%M:%S", localtime(&now));
     gettimeofday(&tv, NULL);
 	
 	FILE *fp;
