@@ -42,13 +42,6 @@ int main(int argc,char *argv[])
       printf("\nlogx: Some environment variables are not set, please fix above errors and retry\n");
       exit(1);
     }
-    
-    char buff[10];
-    time_t now = time(NULL);
-    struct timeval tv;
-    
-    strftime(buff, 10, "%H:%M:%S", localtime(&now));
-    gettimeofday(&tv, NULL);
 	
 	FILE *fp;
     if((fp=fopen(logx_out, "a+"))==NULL)
@@ -56,7 +49,14 @@ int main(int argc,char *argv[])
         printf("logx: Can not open \"%s\", please check your %s environment variable\n", logx_out, LOGX_OUT);
         exit(1);
     }
-
+    
+    char buff[10];
+    time_t now = time(NULL);
+    struct timeval tv;
+    
+    strftime(buff, 10, "%H:%M:%S", localtime(&now));
+    gettimeofday(&tv, NULL);
+    
     std::string output_string;
     std::string time_now(buff);
     std::string millisecond = std::to_string(tv.tv_usec / 1000);
