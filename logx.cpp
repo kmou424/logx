@@ -50,11 +50,11 @@ int main(int argc,char *argv[])
         exit(1);
     }
     
-    char buff[10];
+    char buff[16];
     time_t now = time(NULL);
     struct timeval tv;
     
-    strftime(buff, 10, "%H:%M:%S", localtime(&now));
+    strftime(buff, 16, "%m-%d %H:%M:%S", localtime(&now));
     gettimeofday(&tv, NULL);
     
     std::string output_string;
